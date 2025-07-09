@@ -1,0 +1,19 @@
+[server]
+headless = true
+enableCORS = false
+enableXsrfProtection = false
+
+[theme]
+primaryColor = "#28a745"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f0f2f6"
+textColor = "#262730"
+
+[client]
+showErrorDetails = true
+
+[runner]
+magicEnabled = false
+
+[logger]
+level = "info" 

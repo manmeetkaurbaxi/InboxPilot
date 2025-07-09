@@ -399,9 +399,16 @@ class VectorStore:
 # Global vector store instance
 vector_store = None
 
-def get_vector_store() -> VectorStore:
-    """Get or create vector store instance"""
+def get_vector_store():
+    """Get or create vector store instance with fallback to JSON storage"""
     global vector_store
     if vector_store is None:
-        vector_store = VectorStore()
+        try:
+            # Try to use ChromaDB first
+            vector_store = VectorStore()
+        except Exception as e:
+            # If ChromaDB fails (e.g., SQLite compatibility), use fallback storage
+            st.warning(f"⚠️ ChromaDB not available ({e}), using fallback storage")
+            from fallback_storage import get_fallback_storage
+            vector_store = get_fallback_storage()
     return vector_store 

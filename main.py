@@ -1,6 +1,24 @@
 import streamlit as st
 import asyncio
 import os
+import sys
+
+# Fix protobuf issues for Streamlit Cloud deployment
+try:
+    os.environ['PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION'] = 'python'
+except:
+    pass
+
+# Fix SQLite compatibility issues for ChromaDB
+try:
+    from sqlite_fix import setup_chroma_compatibility
+    setup_chroma_compatibility()
+except Exception as e:
+    st.warning(f"⚠️ SQLite compatibility fix failed: {e}")
+
+# Add current directory to Python path
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 from config import GROQ_API_KEY, get_model_info
 from cv_extractor import create_cv_extraction_ui
 from job_parser import create_job_parser_ui
