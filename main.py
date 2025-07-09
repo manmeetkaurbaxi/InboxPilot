@@ -27,7 +27,7 @@ from vector_store import get_vector_store
 
 # Configure page
 st.set_page_config(
-    page_title="CV Extractor & Cold Email Generator",
+    page_title="Inbox Pilot",
     page_icon="📧",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -86,7 +86,7 @@ def main():
     vector_store = get_vector_store()
     
     # Sidebar navigation
-    st.sidebar.title("Personalized Cold Email Generator")
+    st.sidebar.title("Inbox Pilot")
     
     # Check data availability for navigation hints
     cv_data = vector_store.get_cv_data()

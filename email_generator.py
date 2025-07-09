@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Cold Email Generator Agent
-Generates personalized cold emails using CV data and job data
+Inbox Pilot Email Generator Agent
+Generates personalized emails using CV data and job data
 """
 
 from pydantic_ai import Agent
@@ -70,7 +70,7 @@ class GeneratedEmail(BaseModel):
 
 
 class EmailGeneratorAgent:
-    """Cold Email Generator Agent using PydanticAI"""
+    """Inbox Pilot Email Generator Agent using PydanticAI"""
     
     def __init__(self):
         validate_config()
@@ -78,7 +78,7 @@ class EmailGeneratorAgent:
             model=GROQ_MODEL,
             deps_type=EmailGenerationInput,
             result_type=GeneratedEmail,
-            system_prompt="""You are a specialized Cold Email Generator that creates highly personalized, compelling emails for job applications.
+            system_prompt="""You are a specialized Inbox Pilot Email Generator that creates highly personalized, compelling emails for job applications.
 
 CRITICAL INSTRUCTIONS:
 - Create emails that are highly personalized to the specific job and company
@@ -298,8 +298,8 @@ def send_email_via_smtp(sender_email: str, sender_password: str, recipient_email
 
 def create_email_generator_ui():
     """Create Streamlit UI for email generation"""
-    st.title("📧 Cold Email Generator")
-    st.write("Generate personalized cold emails using your CV data and job information")
+    st.title("📧 Inbox Pilot Email Generator")
+    st.write("Generate personalized emails using your CV data and job information")
     
     # Initialize vector store
     vector_store = get_vector_store()

@@ -58,15 +58,15 @@ def test_email_functionality():
                     msg = MIMEMultipart()
                     msg['From'] = sender_email
                     msg['To'] = test_recipient
-                    msg['Subject'] = "Test Email from Cold Email Generator"
+                    msg['Subject'] = "Test Email from Inbox Pilot"
                     
                     body = """
-                    This is a test email from the Cold Email Generator application.
+                    This is a test email from the Inbox Pilot application.
                     
                     If you received this email, your SMTP configuration is working correctly!
                     
                     Best regards,
-                    Cold Email Generator
+                    Inbox Pilot
                     """
                     
                     msg.attach(MIMEText(body, 'plain'))

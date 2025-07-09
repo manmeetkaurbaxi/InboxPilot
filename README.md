@@ -1,6 +1,6 @@
-# InboxPilot - CV Extractor & Cold Email Generator
+# InboxPilot - CV Extractor & Email Generator
 
-A comprehensive, production-ready system for extracting CV data, parsing job descriptions, and generating personalized cold emails using AI agents built with PydanticAI and Groq LLM.
+A comprehensive, production-ready system for extracting CV data, parsing job descriptions, and generating personalized emails using AI agents built with PydanticAI and Groq LLM.
 
 ## 📁 Project Structure
 
@@ -15,7 +15,7 @@ my_own/
 ├── 🤖 AI Agent Modules
 │   ├── cv_extractor.py            # CV/Resume extraction agent and UI
 │   ├── job_parser.py              # Job description parser with web scraping
-│   ├── email_generator.py         # Cold email generator agent
+│   ├── email_generator.py         # Email generator agent
 │   └── email_tracker.py           # Email tracking and analytics
 │
 ├── 🗄️ Data Storage & Management
@@ -68,7 +68,7 @@ my_own/
 - **Duplicate Prevention**: Check if emails were already sent to prevent spam
 - **Email Tracking**: Monitor sent emails with statistics and success rates
 
-### 📧 Cold Email Generator
+### 📧 Email Generator
 
 - **Personalized Content**: Generate emails using CV and job data for perfect matching
 - **Multiple Email Types**: Industry positions, academic research, freelance, networking
@@ -191,7 +191,7 @@ my_own/
 
 1. **Configure Settings**: Choose email type and tone
 2. **Add Recipient Info**: Enter hiring manager details (optional)
-3. **Generate Email**: AI creates personalized cold email
+3. **Generate Email**: AI creates personalized email
 4. **Review & Send**: Preview, download, or mark as sent
 
 ## 🌐 Supported Job Sites

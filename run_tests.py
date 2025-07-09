@@ -59,7 +59,7 @@ def run_test(test_name):
 def print_help():
     """Print help information"""
     print("""
-🧪 Test Runner for Cold Email Generator
+🧪 Test Runner for Inbox Pilot
 
 Usage: python run_tests.py [test_name]
 

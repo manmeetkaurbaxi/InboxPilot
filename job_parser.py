@@ -428,7 +428,7 @@ Please extract the structured job information.""",
 def create_job_parser_ui():
     """Create Streamlit UI for job description parsing"""
     st.title("🔍 Job Description Parser")
-    st.write("Parse job descriptions to extract structured data for cold email generation")
+    st.write("Parse job descriptions to extract structured data for email generation")
     
     # Initialize vector store
     vector_store = get_vector_store()
@@ -623,7 +623,7 @@ def create_job_parser_ui():
     
     # Navigation hint
     if cv_data and st.session_state.get('current_job_data'):
-        st.success("✅ Ready for email generation! Navigate to the Email Generator page to create personalized cold emails.")
+        st.success("✅ Ready for email generation! Navigate to the Email Generator page to create personalized emails.")
     
     return st.session_state.get('current_job_data')
 

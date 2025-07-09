@@ -287,7 +287,7 @@ def create_manual_links_section():
 def create_cv_extraction_ui():
     """Create Streamlit UI for CV extraction with stepwise approach"""
     st.title("📄 CV/Resume Data Extractor")
-    st.write("Step-by-step data collection for personalized cold emails")
+    st.write("Step-by-step data collection for personalized emails")
     
     # Initialize vector store
     vector_store = get_vector_store()
@@ -307,7 +307,7 @@ def create_cv_extraction_ui():
     if st.session_state.current_step == 1:
         # Step 1: Social Links Collection
         st.write("**Step 1: Add your social media links and GitHub repositories**")
-        st.write("This information will be used to personalize your cold emails.")
+        st.write("This information will be used to personalize your emails.")
         
         manual_links = create_manual_links_section()
         
@@ -530,7 +530,7 @@ def create_cv_extraction_ui():
                 st.balloons()
         
         # Success message
-        st.success("🎉 Data collection completed! You can now use this data for cold email generation.")
+        st.success("🎉 Data collection completed! You can now use this data for email generation.")
     
     # Return the collected data for use in other parts of the application
     return st.session_state.cv_data, st.session_state.manual_links
