@@ -1,4 +1,4 @@
-# CV Extractor & Cold Email Generator
+# InboxPilot - CV Extractor & Cold Email Generator
 
 A comprehensive, production-ready system for extracting CV data, parsing job descriptions, and generating personalized cold emails using AI agents built with PydanticAI and Groq LLM.
 
