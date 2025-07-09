@@ -5,9 +5,10 @@ Debug script for job scraper functionality
 
 import os
 import sys
+import streamlit as st
 from dotenv import load_dotenv
 
-# Load environment variables
+# Load environment variables for local development
 load_dotenv()
 
 # Add the current directory to Python path
@@ -114,8 +115,10 @@ if __name__ == "__main__":
     print("=" * 50)
     
     # Check environment
-    if not os.getenv("GROQ_API_KEY"):
+    groq_api_key = st.secrets.get("GROQ_API_KEY") or os.getenv("GROQ_API_KEY")
+    if not groq_api_key:
         print("⚠️  GROQ_API_KEY not found. AI parsing will not work.")
+        print("   Please set your API key in Streamlit secrets or .env file")
     
     debug_scraper()
     test_real_url()

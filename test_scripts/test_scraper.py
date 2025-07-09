@@ -5,10 +5,11 @@ Test script for job scraper functionality
 
 import asyncio
 from job_parser import JobScraper, JobParserAgent
-import os
+import streamlit as st
 from dotenv import load_dotenv
+import os
 
-# Load environment variables
+# Load environment variables for local development
 load_dotenv()
 
 def test_scraper():
@@ -136,9 +137,10 @@ def main():
     print("🚀 Starting Job Parser Tests...")
     
     # Check if API key is available
-    if not os.getenv("GROQ_API_KEY"):
+    groq_api_key = st.secrets.get("GROQ_API_KEY") or os.getenv("GROQ_API_KEY")
+    if not groq_api_key:
         print("⚠️  GROQ_API_KEY not found. Some tests may fail.")
-        print("   Please set your API key in the .env file")
+        print("   Please set your API key in Streamlit secrets or .env file")
     
     # Run tests
     test_scraper()

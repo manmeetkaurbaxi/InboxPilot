@@ -209,3 +209,4 @@ Before reporting an issue, verify:
 - [ ] Internet connection is working
 - [ ] Test connection button works
 - [ ] Debug information shows correct values
+ 

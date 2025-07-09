@@ -399,6 +399,7 @@ class VectorStore:
 # Global vector store instance
 vector_store = None
 
+
 def get_vector_store():
     """Get or create vector store instance with fallback to JSON storage"""
     global vector_store
