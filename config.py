@@ -4,15 +4,23 @@ Configuration settings for the CV Extractor application
 
 import os
 from dotenv import load_dotenv
+import streamlit as st
 
 # Load environment variables
 load_dotenv(override=True)
 
-# API Configuration
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-EMAIL_ADDRESS = os.getenv("EMAIL_ADDRESS")
-EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
-SENDER_NAME = os.getenv("SENDER_NAME", "Your Name")
+# API Configuration - Try Streamlit secrets first, then environment variables
+try:
+    GROQ_API_KEY = st.secrets.get("GROQ_API_KEY") or os.getenv("GROQ_API_KEY")
+    EMAIL_ADDRESS = st.secrets.get("EMAIL_ADDRESS") or os.getenv("EMAIL_ADDRESS")
+    EMAIL_PASSWORD = st.secrets.get("EMAIL_PASSWORD") or os.getenv("EMAIL_PASSWORD")
+    SENDER_NAME = st.secrets.get("SENDER_NAME") or os.getenv("SENDER_NAME", "Your Name")
+except:
+    # Fallback to environment variables if Streamlit secrets not available
+    GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+    EMAIL_ADDRESS = os.getenv("EMAIL_ADDRESS")
+    EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
+    SENDER_NAME = os.getenv("SENDER_NAME", "Your Name")
 
 # Model Configuration
 GROQ_MODEL = "groq:llama-3.3-70b-versatile"  # Currently supported model

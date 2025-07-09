@@ -33,19 +33,26 @@ my_own/
    - **Branch**: `main` (or your default branch)
    - **Main file path**: `my_own/main.py`
 
-### 3. **Configure Environment Variables**
+### 3. **Configure Streamlit Cloud Secrets**
 
 In Streamlit Cloud, go to your app settings and add these secrets:
+
+1. **Go to your app** in Streamlit Cloud
+2. **Click "Settings"** (gear icon)
+3. **Go to "Secrets"** tab
+4. **Add the following secrets**:
 
 ```toml
 GROQ_API_KEY = "your_actual_groq_api_key"
 EMAIL_ADDRESS = "your.email@gmail.com"
 EMAIL_PASSWORD = "your_app_password"
 SENDER_NAME = "Your Name"
-PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION = "python"
 ```
 
-**Note**: The app will automatically use fallback JSON storage if ChromaDB fails due to SQLite compatibility issues.
+**Important Notes:**
+- The app automatically uses Streamlit Cloud secrets when deployed
+- For local development, use `.env` file
+- The app will automatically use fallback JSON storage if ChromaDB fails due to SQLite compatibility issues
 
 ### 4. **Deploy and Test**
 

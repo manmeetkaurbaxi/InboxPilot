@@ -7,6 +7,7 @@ Verify that your email settings are configured correctly
 import os
 from dotenv import load_dotenv
 import smtplib
+import streamlit as st
 
 def check_email_config():
     """Check if email configuration is properly set up"""
@@ -16,10 +17,16 @@ def check_email_config():
     # Load environment variables
     load_dotenv()
     
-    # Check required variables
-    email_address = os.getenv("EMAIL_ADDRESS")
-    email_password = os.getenv("EMAIL_PASSWORD")
-    sender_name = os.getenv("SENDER_NAME", "Your Name")
+    # Check Streamlit secrets first, then environment variables
+    try:
+        email_address = st.secrets.get("EMAIL_ADDRESS") or os.getenv("EMAIL_ADDRESS")
+        email_password = st.secrets.get("EMAIL_PASSWORD") or os.getenv("EMAIL_PASSWORD")
+        sender_name = st.secrets.get("SENDER_NAME") or os.getenv("SENDER_NAME", "Your Name")
+    except:
+        # Fallback to environment variables
+        email_address = os.getenv("EMAIL_ADDRESS")
+        email_password = os.getenv("EMAIL_PASSWORD")
+        sender_name = os.getenv("SENDER_NAME", "Your Name")
     
     print(f"📧 Email Address: {'✅ Set' if email_address else '❌ Not set'}")
     if email_address:

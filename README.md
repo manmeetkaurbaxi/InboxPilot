@@ -157,8 +157,11 @@ my_own/
 3. **Set up environment variables**:
 
    ```bash
+   # Option 1: Create .env file (recommended for local development)
    cp env_example.txt .env
    # Edit .env with your Groq API key and email settings
+
+   # Option 2: Use Streamlit secrets (see SECRETS_MANAGEMENT.md for details)
    ```
 
 4. **Run the application**:
